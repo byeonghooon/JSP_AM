@@ -16,9 +16,11 @@ int totalPage = (int) request.getAttribute("totalPage");
 </head>
 <body>
 	<h1>게시물 리스트</h1>
+
 	<div>
 		<a href="write">글쓰기</a>
 	</div>
+
 	<table border="2" bordercolor="green">
 		<colgroup>
 			<col width="50" />
@@ -54,12 +56,36 @@ int totalPage = (int) request.getAttribute("totalPage");
 
 	<div class="page">
 		<%
-		for (int i = 1; i <= totalPage; i++) {
+		if (cPage > 1) {
+		%>
+		<a href="list?page=1">◀◀</a>
+		<%
+		}
+		%>
+		<%
+		int pageSize = 5;
+		int from = cPage - pageSize;
+		if (from < 1) {
+			from = 1;
+		}
+		int end = cPage + pageSize;
+		if (end > totalPage) {
+			end = totalPage;
+		}
+		for (int i = from; i <= end; i++) {
 		%>
 		<a class="<%=cPage == i ? "red" : ""%>" href="list?page=<%=i%>"><%=i%></a>
 		<%
 		}
 		%>
+		<%
+		if (cPage < totalPage) {
+		%>
+		<a href="list?page=<%=totalPage%>">▶▶</a>
+		<%
+		}
+		%>
+
 	</div>
 
 </body>
