@@ -16,7 +16,9 @@ int totalPage = (int) request.getAttribute("totalPage");
 </head>
 <body>
 	<h1>게시물 리스트</h1>
-
+	<div>
+		<a href="write">글쓰기</a>
+	</div>
 	<table border="2" bordercolor="green">
 		<colgroup>
 			<col width="50" />
@@ -52,7 +54,7 @@ int totalPage = (int) request.getAttribute("totalPage");
 		<%
 		for (int i = 1; i <= totalPage; i++) {
 		%>
-		<a class="<%=cPage == i ? "red" : "" %>" href="list?page=<%=i%>"><%=i%></a>
+		<a class="<%=cPage == i ? "red" : ""%>" href="list?page=<%=i%>"><%=i%></a>
 		<%
 		}
 		%>
