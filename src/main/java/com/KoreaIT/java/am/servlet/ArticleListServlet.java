@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.KoreaIT.java.am.config.Config;
+import com.KoreaIT.java.am.exception.SQLErrorException;
 import com.KoreaIT.java.am.util.DBUtil;
 import com.KoreaIT.java.am.util.SecSql;
 
@@ -26,7 +27,6 @@ public class ArticleListServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 
 		// DB 연결
-	
 
 		Connection conn = null;
 
@@ -59,7 +59,7 @@ public class ArticleListServlet extends HttpServlet {
 
 			int totalCount = DBUtil.selectRowIntValue(conn, sql);
 			int totalPage = (int) Math.ceil((double) totalCount / itemsInAPage);
-			
+
 			sql = SecSql.from("SELECT *");
 			sql.append("FROM article");
 			sql.append("ORDER BY id DESC");
@@ -74,6 +74,8 @@ public class ArticleListServlet extends HttpServlet {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (SQLErrorException e) {
+			e.getOrigin().printStackTrace();
 		} finally {
 			try {
 				if (conn != null && !conn.isClosed()) {
@@ -84,6 +86,7 @@ public class ArticleListServlet extends HttpServlet {
 			}
 		}
 	}
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

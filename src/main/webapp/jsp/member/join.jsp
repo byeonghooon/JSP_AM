@@ -19,27 +19,27 @@
 				return;
 			}
 
-			form.LoginId.value = form.LoginId.value.trim();
-			if (form.LoginId.value.length == 0) {
+			form.loginId.value = form.loginId.value.trim();
+			if (form.loginId.value.length == 0) {
 				alert('아이디를 입력해주세요.');
-				form.LoginId.focus();
+				form.loginId.focus();
 				return;
 			}
-			form.LoginPw.value = form.LoginPw.value.trim();
-			if (form.LoginPw.value.length == 0) {
+			form.loginPw.value = form.loginPw.value.trim();
+			if (form.loginPw.value.length == 0) {
 				alert('비밀번호를 입력해주세요.');
-				form.LoginPw.focus();
+				form.loginPw.focus();
 				return;
 			}
-			form.LoginPwConfirm.value = form.LoginPwConfirm.value.trim();
-			if (form.LoginPwConfirm.value.length == 0) {
+			form.loginPwConfirm.value = form.loginPwConfirm.value.trim();
+			if (form.loginPwConfirm.value.length == 0) {
 				alert('비밀번호 확인을 입력해주세요.');
-				form.LoginPwConfirm.focus();
+				form.loginPwConfirm.focus();
 				return;
 			}
-			if (form.LoginPw.value != form.LoginPwConfirm.value) {
+			if (form.loginPw.value != form.loginPwConfirm.value) {
 				alert('비밀번호가 일치하지 않습니다.');
-				form.LoginPwConfirm.focus();
+				form.loginPwConfirm.focus();
 				return;
 			}
 			form.name.value = form.name.value.trim();
@@ -55,18 +55,20 @@
 	<form action="doJoin" method="post"
 		onsubmit="JoinForm__submit(this); return false;">
 		<div>
-			로그인 아이디 : <input autocomplete="off" placeholder="아이디를 입력해주세요" name="LoginId" type="text" />
+			로그인 아이디 : <input autocomplete="off" placeholder="아이디를 입력해주세요"
+				name="loginId" type="text" />
 		</div>
 		<div>
-			로그인 비밀번호 : <input autocomplete="off" placeholder="비밀번호를 입력해주세요" name="LoginPw"
-				type="password" />
+			로그인 비밀번호 : <input autocomplete="off" placeholder="비밀번호를 입력해주세요"
+				name="loginPw" type="password" />
 		</div>
 		<div>
 			로그인 비밀번호 확인 : <input autocomplete="off" placeholder="비밀번호 확인을 입력해주세요"
-				name="LoginPwConfirm" type="password" />
+				name="loginPwConfirm" type="password" />
 		</div>
 		<div>
-			이름 : <input autocomplete="off" placeholder="이름을 입력해주세요" name="name" type="text" />
+			이름 : <input autocomplete="off" placeholder="이름을 입력해주세요" name="name"
+				type="text" />
 		</div>
 		<div>
 			<button type="submit">회원가입</button>
