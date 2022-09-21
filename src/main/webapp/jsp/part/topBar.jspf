@@ -9,13 +9,13 @@
 	<%
 	boolean isLogined = (boolean) request.getAttribute("isLogined");
 	int loginedMemberId = (int) request.getAttribute("loginedMemberId");
-	Map<String, Object> loginedMemebrRow = (Map<String, Object>) request.getAttribute("loginedMemebrRow");
+	Map<String, Object> loginedMemberRow = (Map<String, Object>) request.getAttribute("loginedMemberRow");
 	%>
 	<%
 	if (isLogined) {
 	%>
 	<div>
-		<div><%=loginedMemebrRow.get("name")%>
+		<div><%=loginedMemberRow.get("name")%>
 			님 환영합니다
 		</div>
 		<a href="../member/doLogout">로그아웃</a>
